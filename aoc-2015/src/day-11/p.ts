@@ -80,11 +80,13 @@ function containsThreeIncreasingLetters(strArr: Letter[]) {
 }
 
 const charArray = data.split("") as Letter[];
+const passwords = [];
 while (true) {
   if (isValidPass(charArray)) {
-    break;
+    passwords.push(charArray.join(""));
+    if (passwords.length === 2) break;
   }
   incrementStr(charArray);
 }
 
-console.log(charArray.join(""));
+passwords.map((pass, idx) => console.log(`P${idx + 1}: ${pass}`));
